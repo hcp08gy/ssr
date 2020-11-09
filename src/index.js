@@ -25,14 +25,25 @@
 // })
 
 // 使用async函数实现，与上边的动态导入一致。
-async function getComponent() {
-    const { default: _ } = await import('lodash');
+// async function getComponent() {
+//     const { default: _ } = await import('lodash');
 
-    const element = document.createElement('div');
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    return element;
-}
+//     const element = document.createElement('div');
+//     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+//     return element;
+// }
 
-getComponent().then(component => {
-    document.body.appendChild(component);
-})
+// getComponent().then(component => {
+//     document.body.appendChild(component);
+// })
+
+import React from "react";
+import ReactDOM from 'react-dom';
+import Home from './pages/Home';
+
+ReactDOM.render(
+    <React.StrictMode>
+      <Home />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );

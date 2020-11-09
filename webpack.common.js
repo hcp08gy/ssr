@@ -47,8 +47,21 @@ module.exports = {
     // 插件: 与顺序无关
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Common',
+            title: 'MyPage',
+            template: 'public/index.html'
         }),
         new CleanWebpackPlugin(),
-    ]
+    ],
+    // module设置
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                }
+            }
+        ]
+    }
 }
