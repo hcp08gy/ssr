@@ -1,14 +1,38 @@
-import _ from 'lodash';
-import printMe from './print';
+// import _ from 'lodash';
 
-function component() {
-  var element = document.createElement('div');
-  var btn = document.createElement('button');
-  element.innerHTML = _.join(['Hello', 'webpack'], '');
-  btn.innerHTML = 'Click me and check the console!';
-  btn.onclick = printMe;
-  element.appendChild(btn);
-  return element;
+// function component() {
+//   var element = document.createElement('div');
+//   element.innerHTML = _.join(['Hello', 'webpack'], '');
+//   return element;
+// }
+
+// document.body.appendChild(component());
+
+// function getComponent() {
+//     // 动态导入
+//     return import('lodash').then(({ default: _ }) => {
+//         const element = document.createElement('div');
+   
+//         element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+   
+//         return element;
+   
+//     }).catch(error => 'An error occurred while loading the component');
+// }
+
+// getComponent().then(component => {
+//     document.body.appendChild(component);
+// })
+
+// 使用async函数实现，与上边的动态导入一致。
+async function getComponent() {
+    const { default: _ } = await import('lodash');
+
+    const element = document.createElement('div');
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+    return element;
 }
 
-document.body.appendChild(component());
+getComponent().then(component => {
+    document.body.appendChild(component);
+})
