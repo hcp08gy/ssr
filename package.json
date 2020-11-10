@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.prod.js",
     "start": "webpack serve --open 9000 --config webpack.dev.js",
-    "server": "node server.js"
+    "server": "node server.js",
+    "node": "nodemon node.js --exec babel-node",
+    "dev:build:client": "webpack --config webpack.client.js",
+    "dev:build:server": "webpack --config webpack.server.js"
   },
   "repository": {
     "type": "git",
@@ -36,6 +39,8 @@
     "webpack-merge": "^5.3.0"
   },
   "dependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/node": "^7.12.6",
     "lodash": "^4.17.20",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
