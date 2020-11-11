@@ -10,6 +10,8 @@ module.exports = merge(common, {
     devServer: {
         contentBase: './dist',
         compress: true,
-        port: 9000
+        port: 9000,
+        // 为了可以直接访问动态路由对应的URI
+        historyApiFallback: true
     },
 })

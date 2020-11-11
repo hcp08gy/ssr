@@ -8,7 +8,7 @@
     "build": "webpack --config webpack.prod.js",
     "start": "webpack serve --open 9000 --config webpack.dev.js",
     "server": "node server.js",
-    "node": "nodemon node.js --exec babel-node",
+    "node": "nodemon ./server/index.js --exec babel-node",
     "dev:build:client": "webpack --config webpack.client.js",
     "dev:build:server": "webpack --config webpack.server.js"
   },

@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from '../src/pages/Home';
+import App from '../src/App';
 
-ReactDOM.hydrate(<Home/>, document.getElementById('root'));
+ReactDOM.hydrate(<App/>, document.getElementById('root'));

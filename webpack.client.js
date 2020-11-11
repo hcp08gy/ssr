@@ -9,7 +9,7 @@ module.exports = merge(common, {
     devtool: 'inline-source-map',
     output: {
        filename: 'index.js',
-       path: path.resolve(__dirname, 'ssr')
+       path: path.resolve(__dirname, 'serverServiceRender')
     }
 
 })
