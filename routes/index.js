@@ -3,6 +3,8 @@ import { Switch, Route, Link } from 'react-router-dom';
 import Home from '../src/pages/Home';
 import About from '../src/pages/About';
 import Users from '../src/pages/Users';
+import ReduxDemo from '../src/pages/ReduxDemo';
+import ReduxDemoWithMid from '../src/pages/ReduxDemoWithMid';
 
 export default (
     <div>
@@ -17,9 +19,18 @@ export default (
                 <li>
                     <Link to="/users">users</Link>
                 </li>
+                <li>
+                    <Link to="/ReduxDemoWithMid">ReduxDemoWithMid</Link>
+                </li>
             </ul>
         </nav>
         <Switch>
+            <Route path='/reduxDemo'>
+                <ReduxDemo />
+            </Route>
+            <Route path='/ReduxDemoWithMid'>
+                <ReduxDemoWithMid />
+            </Route>
             <Route path='/about'>
                 <About />
             </Route>
