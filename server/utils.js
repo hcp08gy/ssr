@@ -4,13 +4,19 @@ import { renderToString } from 'react-dom/server';
 
 import { StaticRouter } from 'react-router-dom';
 
-export const render = (req) => {
+import { Provider } from 'react-redux';
+import getStore from '../redux/Store';
+
+export default function render(req) {
     // renderToString 不会对事件做处理
     // 构建服务端的路由
     const content = renderToString(
+      <Provider store={getStore()}>
         <StaticRouter location={req.path}>
-            {Routes}
+          {Routes}
         </StaticRouter>
+      </Provider>
+
     );
     return `
     <html>

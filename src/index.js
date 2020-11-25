@@ -42,11 +42,11 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from '../routes';
 import { Provider } from 'react-redux';
-import store from '../redux/Store';
+import getStore from '../redux/Store';
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={store}>
+        <Provider store={getStore()}>
             <BrowserRouter>
                 {Routes}
             </BrowserRouter>
