@@ -17,7 +17,7 @@ export const decrement = () => {
 
 export const fetchUserList = () => {
     return (dispatch) => {
-        axios.get(mockUrl).then((res) => {
+        return axios.get(mockUrl).then((res) => {
             const {data} = res;
             const {result} = data || {};
             if(result) {

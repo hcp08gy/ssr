@@ -41,4 +41,11 @@ const mapStateToProps = state => {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReduxDemoWithMid);
+const exportReduxDemoWithMid = connect(mapStateToProps, mapDispatchToProps)(ReduxDemoWithMid);
+
+// 给组件绑定接口请求方法，用于服务端请求接口注入redux
+exportReduxDemoWithMid.ssrGetData = (store) => {
+    return store.dispatch(actions.fetchUserList());
+}
+
+export default exportReduxDemoWithMid;

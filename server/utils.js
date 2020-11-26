@@ -1,19 +1,20 @@
 import React from 'react';
-import Routes from '../routes';
+import routes from '../routes';
 import { renderToString } from 'react-dom/server';
-
-import { StaticRouter } from 'react-router-dom';
-
+import { StaticRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import getStore from '../redux/Store';
 
-export default function render(req) {
-    // renderToString 不会对事件做处理
+export default function render(store, req) {
+  // renderToString 不会对事件做处理
     // 构建服务端的路由
     const content = renderToString(
-      <Provider store={getStore()}>
+      <Provider store={store}>
         <StaticRouter location={req.path}>
-          {Routes}
+          <div>
+            {routes.map((route) => {
+              return <Route {...route} />
+            })}
+          </div>
         </StaticRouter>
       </Provider>
 
@@ -28,5 +29,5 @@ export default function render(req) {
       </body>
       <script src="index.js"></script>
     </html>
-   `
+    `
 }

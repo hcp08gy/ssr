@@ -39,8 +39,8 @@
 
 import React from "react";
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import Routes from '../routes';
+import { BrowserRouter, Route } from 'react-router-dom';
+import routes from '../routes';
 import { Provider } from 'react-redux';
 import getStore from '../redux/Store';
 
@@ -48,7 +48,11 @@ ReactDOM.render(
     <React.StrictMode>
         <Provider store={getStore()}>
             <BrowserRouter>
-                {Routes}
+                <div>
+                    {routes.map((route) => {
+                        return <Route {...route} />
+                    })}
+                </div>
             </BrowserRouter>
         </Provider>
     </React.StrictMode>,
