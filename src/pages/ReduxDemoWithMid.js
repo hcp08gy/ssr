@@ -9,7 +9,10 @@ class ReduxDemoWithMid extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUserList();
+        // 如果已经有用户数据，即服务端已经请求到用户数据，客户端不再发起请求
+        if(!this.props.userList) {
+            this.props.fetchUserList();
+        }
     }
 
     render() {

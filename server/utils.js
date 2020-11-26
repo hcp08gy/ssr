@@ -27,6 +27,11 @@ export default function render(store, req) {
       <body>
         <div id="root">${content}</div>
       </body>
+      <script>
+        window.context = {
+          state: ${JSON.stringify(store.getState())}
+        }
+      </script>
       <script src="index.js"></script>
     </html>
     `
