@@ -22,6 +22,9 @@ export default function Home() {
                     <li>
                         <Link to="/ReduxDemoWithMid">ReduxDemoWithMid</Link>
                     </li>
+                    <li>
+                        <Link to="/testJsonp">testJsonp</Link>
+                    </li>
                 </ul>
             </nav>
         </div>

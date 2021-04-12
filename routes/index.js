@@ -3,6 +3,7 @@ import About from '../src/pages/About';
 import Users from '../src/pages/Users';
 import ReduxDemo from '../src/pages/ReduxDemo';
 import ReduxDemoWithMid from '../src/pages/ReduxDemoWithMid';
+import TestJsonp from '../src/pages/TestJsonp';
 
 export default [
     {
@@ -36,4 +37,10 @@ export default [
         key: 'ReduxDemoWithMid',
         ssrGetData: ReduxDemoWithMid.ssrGetData
     },
+    {
+        path: '/testJsonp',
+        component: TestJsonp,
+        exact: true,
+        key: 'testJsonp'
+    }
 ]
