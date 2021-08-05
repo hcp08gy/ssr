@@ -1,4 +1,6 @@
 const path = require('path');
+
+const alias = require('./alias');
 /**
  * 引入HtmlWebpackPlugin插件
  * 自动生成新的html文件
@@ -61,7 +63,22 @@ module.exports = {
                 use: {
                     loader: "babel-loader"
                 }
+            },
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/
+            },
+            {
+                test: /\.less$/,
+                use: ['style-loader', 'css-loader', 'less-loader'],
+                exclude: /node_modules/
             }
         ]
+    },
+    resolve: {
+        alias: {
+            ...alias
+        }
     }
 }
