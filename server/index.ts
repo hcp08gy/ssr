@@ -1,7 +1,7 @@
 import express from 'express';
-import getStore from '../redux/Store';
+import getStore from '../redux';
 import routes from '../routes';
-import { matchRoutes } from 'react-router-config';
+import { matchRoutes, RouteConfig } from 'react-router-config';
 import render from './utils';
 
 const app = express();
@@ -13,9 +13,9 @@ app.get('*', function (req, res) {
 
   //调用matchRoutes用来匹配当前路由(支持多级路由)
   const matchedRoutes = matchRoutes(routes, req.path);
-  const promises = [];
+  const promises:any = [];
 
-  matchedRoutes.forEach(item => {
+  matchedRoutes.forEach((item:any) => {
     console.log({xxxxxxxxxxxx3: item.route});
     if(item.route.ssrGetData) {
       promises.push(item.route.ssrGetData(store))

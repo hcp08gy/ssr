@@ -42,10 +42,19 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import routes from '../routes';
 import { Provider } from 'react-redux';
-import {getClientStore} from '../redux/Store';
+import {getClientStore} from '../redux';
+// ts-ignore
+import App from './App';
+
+// const App = () => (
+//     <div>test</div>
+// )
 
 ReactDOM.render(
     <React.StrictMode>
+        {/* <Provider store={getClientStore()}>
+            <App />
+        </Provider> */}
         <Provider store={getClientStore()}>
             <BrowserRouter>
                 <div>

@@ -1,5 +1,5 @@
 import React,  { useState } from 'react';
-var timeCount;
+var timeCount:number;
 export default function About() {
     const [count, setCount] = useState(0);
     timeCount = count

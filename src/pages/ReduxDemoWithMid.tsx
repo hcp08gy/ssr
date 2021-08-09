@@ -1,10 +1,16 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from '../../redux/Actions';
 
-class ReduxDemoWithMid extends React.Component {
-    constructor(props) {
+interface propsType {
+    userList: any;
+    fetchUserList: any;
+
+}
+
+class ReduxDemoWithMid extends React.Component<propsType, any> {
+    constructor(props:any) {
         super(props);
     }
 
@@ -20,7 +26,7 @@ class ReduxDemoWithMid extends React.Component {
         return (
             <div>
                 <h1>redux with middleWare</h1>
-                {userList && userList.map((user) => {
+                {userList && userList.map((user:any) => {
                     return <div key={user.name}>
                         <h2>name:{user.name}</h2>
                         <h2>age:{user.age}</h2>
@@ -32,22 +38,22 @@ class ReduxDemoWithMid extends React.Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch:Dispatch) => {
     return {
         fetchUserList: bindActionCreators(actions.fetchUserList, dispatch)
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: any) => {
     return {
         userList: state.reduxDemoWithMid.userList
     };
 }
 
-const exportReduxDemoWithMid = connect(mapStateToProps, mapDispatchToProps)(ReduxDemoWithMid);
+const exportReduxDemoWithMid:any = connect(mapStateToProps, mapDispatchToProps)(ReduxDemoWithMid);
 
 // 给组件绑定接口请求方法，用于服务端请求接口注入redux
-exportReduxDemoWithMid.ssrGetData = (store) => {
+exportReduxDemoWithMid.ssrGetData = (store:any) => {
     return store.dispatch(actions.fetchUserList());
 }
 

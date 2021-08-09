@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Modal from "../components/Modal";
 
 export default function Home() {
     const location = useLocation();
@@ -8,6 +9,7 @@ export default function Home() {
         <div>
             <h1>home</h1>
             <button onClick={() => {console.log(location)}}>test</button>
+            <Modal title="title" subtitle="subtitle" content="modal content"/>
             <nav>
                 <ul>
                     <li>

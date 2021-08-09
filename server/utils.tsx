@@ -4,7 +4,7 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-export default function render(store, req) {
+export default function render(store:any, req:any) {
   // renderToString 不会对事件做处理
     // 构建服务端的路由
     const content = renderToString(

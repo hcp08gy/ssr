@@ -15,7 +15,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     // 多个入口文件
     entry: {
-        app: './src/index.js',
+        app: './src/index.tsx',
         // 通过配置dependOn属性，在多个入口文件之间共享模块
         // index: { import: './src/index.js', dependOn: 'shared'},
         // another: { import: './src/another_module.js', dependOn: 'shared'},
@@ -66,8 +66,10 @@ module.exports = {
             },
             {
                 test: /\.tsx?$/,
-                loader: 'ts-loader',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                use: {
+                    loader: "ts-loader"
+                }
             },
             {
                 test: /\.less$/,
@@ -79,6 +81,7 @@ module.exports = {
     resolve: {
         alias: {
             ...alias
-        }
+        },
+        extensions: [".js",".json",".ts",".tsx"],
     }
 }

@@ -2,8 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../redux/Actions';
 
-class ReduxDemo extends React.Component {
-    constructor(props) {
+interface PropsType {
+    dispatch: any;
+    count: any;
+    hello: any
+}
+
+class ReduxDemo extends React.Component<PropsType, any> {
+    constructor(props:any) {
         super(props);
         // this.state = {
         //     count: store.getState()
@@ -43,7 +49,7 @@ class ReduxDemo extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state:any) => {
     return {
         count: state.reduxDemoReducer,
         hello: state.reduxDemoReducer2

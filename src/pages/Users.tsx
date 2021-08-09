@@ -32,9 +32,9 @@ export default function Users() {
 }
 
 function User() {
-    const params = useParams();
+    const params:any = useParams();
     console.log(params);
-    let { userId } = useParams();
+    let { userId } = params;
     return <h3>
         Requested user ID: {userId}
     </h3>

@@ -5,7 +5,7 @@ import ReduxDemo from '../src/pages/ReduxDemo';
 import ReduxDemoWithMid from '../src/pages/ReduxDemoWithMid';
 import TestJsonp from '../src/pages/TestJsonp';
 
-export default [
+const routes = [
     {
         path: '/',
         component: Home,
@@ -35,7 +35,7 @@ export default [
         component: ReduxDemoWithMid,
         exact: true,
         key: 'ReduxDemoWithMid',
-        ssrGetData: ReduxDemoWithMid.ssrGetData
+        // ssrGetData: ReduxDemoWithMid.ssrGetData
     },
     {
         path: '/testJsonp',
@@ -43,4 +43,6 @@ export default [
         exact: true,
         key: 'testJsonp'
     }
-]
+];
+
+export default routes;

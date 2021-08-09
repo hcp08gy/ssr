@@ -1,6 +1,6 @@
 import * as ActionTypes from '../ActionTypes';
 
-export default (state = {}, action) => {
+export default (state = {}, action:any) => {
     switch (action.type) {
         case ActionTypes.FETCH_USER_LIST:
             return {
